@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>CA106_G1</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- servlet註冊區開始 -->
+
+	<servlet>
+		<servlet-name>memberServlet</servlet-name>
+		<servlet-class>com.mem.controller.memberServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>memberServlet</servlet-name>
+		<url-pattern>/Front_end/mem/mem.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>memberServlet</servlet-name>
+		<url-pattern>/Back_end/mem/mem.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EmpServlet</servlet-name>
+		<servlet-class>com.emp.controller.EmpServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmpServlet</servlet-name>
+		<url-pattern>/Back_end/emp/emp.do</url-pattern>
+	</servlet-mapping>
+
+
+
+	<!-- 昀翰 -->
+	<servlet>
+		<servlet-name>TicketorderServlet</servlet-name>
+		<servlet-class>com.ticketorder.controller.TicketorderServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TicketorderServlet</servlet-name>
+		<url-pattern>/ticketorder/ticketorder.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>MealsorderdetailServlet</servlet-name>
+		<servlet-class>com.mealsorderdetail.controller.MealsorderdetailServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MealsorderdetailServlet</servlet-name>
+		<url-pattern>/mealsorderdetail/mealsorderdetail.do</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>TicketinformationServlet</servlet-name>
+		<servlet-class>com.ticketinformation.controller.TicketinformationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TicketinformationServlet</servlet-name>
+		<url-pattern>/ticketinformation/ticketinformation.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DepServlet</servlet-name>
+		<servlet-class>com.dep.controller.DepServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DepServlet</servlet-name>
+		<url-pattern>/Front_end/dep/dep.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DepServlet</servlet-name>
+		<url-pattern>/Back_end/dep/dep.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>PermServlet</servlet-name>
+		<servlet-class>com.perm.controller.PermServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>PermServlet</servlet-name>
+		<url-pattern>/Back_end/perm/perm.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Cus_serServlet</servlet-name>
+		<servlet-class>com.cus_ser.controller.Cus_serServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Cus_serServlet</servlet-name>
+		<url-pattern>/Front_end/cus_ser/cus_ser.do</url-pattern>
+	</servlet-mapping>
+	
+   <servlet>
+     <servlet-name>Json2Read</servlet-name>
+     <servlet-class>com.address.controller.Json2Read</servlet-class>
+   </servlet>
+   <servlet-mapping>
+     <servlet-name>Json2Read</servlet-name>
+     <url-pattern>/Front_end/mem/Json2Read</url-pattern>
+   </servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>LogoutHandler</servlet-name>
+		<servlet-class>com.login_filter.LoginFilter.LogoutHandler</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutHandler</servlet-name>
+		<url-pattern>/Front_end/mem/logoutHandler.do</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>LoginHandler</servlet-name>
+		<servlet-class>com.login_filter.LoginFilter.LoginHandler</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginHandler</servlet-name>
+		<url-pattern>/Front_end/loginHandler.do</url-pattern>
+		<url-pattern>/Front_end/mem/loginHandler.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BackLogoutHandler</servlet-name>
+		<servlet-class>com.back_login_filter.BackLoginFilter.LogoutHandler</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BackLogoutHandler</servlet-name>
+		<url-pattern>/Back_end/emp/logoutHandler.do</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>BackLoginHandler</servlet-name>
+		<servlet-class>com.back_login_filter.BackLoginFilter.LoginHandler</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BackLoginHandler</servlet-name>
+		<url-pattern>/Back_end/backLoginHandler.do</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>AdvServlet</servlet-name>
+		<servlet-class>com.adv.controller.AdvServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdvServlet</servlet-name>
+		<url-pattern>/Back_end/adv/adv.do</url-pattern>
+		<url-pattern>/Front_end/adv/adv.do</url-pattern>
+		<url-pattern>/Front_end/Home/adv.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 電影種類(後台) -->
+	<servlet>
+		<servlet-name>MovieGenreServlet</servlet-name>
+		<servlet-class>com.moviegenre.controller.MovieGenreServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MovieGenreServlet</servlet-name>
+		<url-pattern>/Back_end/moviegenre/moviegenre.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 電影資訊(前台) -->
+	<servlet>
+		<servlet-name>MovieInfoServletF</servlet-name>
+		<servlet-class>com.movieinfo.controller.MovieInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MovieInfoServlet</servlet-name>
+		<url-pattern>/Front_end/movieinfo/movieinfo.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 電影資訊(後台) -->
+	<servlet>
+		<servlet-name>MovieInfoServlet</servlet-name>
+		<servlet-class>com.movieinfo.controller.MovieInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MovieInfoServlet</servlet-name>
+		<url-pattern>/Back_end/movieinfo/movieinfo.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 專欄新聞(前台) -->
+	<servlet>
+		<servlet-name>NewsInfoServletF</servlet-name>
+		<servlet-class>com.newsinfo.controller.NewsInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewsInfoServlet</servlet-name>
+		<url-pattern>/Front_end/newsinfo/newsinfo.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 專欄新聞(後台) -->
+	<servlet>
+		<servlet-name>NewsInfoServlet</servlet-name>
+		<servlet-class>com.newsinfo.controller.NewsInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewsInfoServlet</servlet-name>
+		<url-pattern>/Back_end/newsinfo/newsinfo.do</url-pattern>
+	</servlet-mapping>
+
+	<!-- servlet註冊區結束，以下 filter註冊開始 -->
+
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.login_filter.LoginFilter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/Front_end/dep/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+		<dispatcher>ERROR</dispatcher>
+		<dispatcher>ASYNC</dispatcher>
+	</filter-mapping>
+
+	<!-- 開始gary註冊第二購票頁面需經過前端濾器 -->
+
+	<filter>
+		<filter-name>LoginFilter_for_chooseSeatS</filter-name>
+		<filter-class>com.login_filter.LoginFilter.LoginFilter_for_chooseSeatS</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>LoginFilter_for_chooseSeatS</filter-name>
+		<url-pattern>/Front_end/ticketorder_/chooseSeatS.jsp</url-pattern>
+		<url-pattern>/Front_end/chatroom/chatroom.jsp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+		<dispatcher>ERROR</dispatcher>
+		<dispatcher>ASYNC</dispatcher>
+	</filter-mapping>
+
+	<!-- 結束gary註冊第二購票頁面需經過前端濾器 -->
+
+	<filter>
+		<filter-name>BackLoginFilter</filter-name>
+		<filter-class>com.back_login_filter.BackLoginFilter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>BackLoginFilter</filter-name>
+		<url-pattern>/Back_end/emp/*</url-pattern>
+		<url-pattern>/Back_end/dep/*</url-pattern>
+		<url-pattern>/Back_end/mem/*</url-pattern>
+		<url-pattern>/Back_end/adv/*</url-pattern>
+		<url-pattern>/Back_end/cinema/*</url-pattern>
+		<url-pattern>/Back_end/farediscount/*</url-pattern>
+		<url-pattern>/Back_end/sessions/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+		<dispatcher>ERROR</dispatcher>
+		<dispatcher>ASYNC</dispatcher>
+	</filter-mapping>
+
+	<!-- filter註冊區結束 -->
+	
+	
+	
+	<context-param>
+    <param-name>org.apache.tomcat.websocket.textBufferSize</param-name>
+    <param-value>30720000</param-value>
+  </context-param>
+<!-- 聊天室上傳圖片大小限制註冊區結束 -->
+
+</web-app>

@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<FORM METHOD="post" ACTION="<%=request.getRequestURI()%>" style="width:717px;">
+					<div class="form-group row">
+					
+						<div class="col-sm-7">
+							<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+								<div class="btn-group mr-2" role="group" aria-label="First group">
+							<% if (rowsPerPage < rowNumber) { %>
+								<% if (pageIndex >= rowsPerPage) { %>
+									<button type="button" class="page btn btn-secondary" data-name="whichPage" data-value="1">至第一頁</button>
+									<button type="button" class="page btn btn-secondary" data-name="whichPage" data-value="<%=whichPage - 1%>">上一頁</button>
+								<% }else{ %>
+									<button type="button" class="page btn btn-secondary disabled" data-name="whichPage" data-value="1">至第一頁</button>
+									<button type="button" class="page btn btn-secondary disabled" data-name="whichPage" data-value="<%=whichPage - 1%>">上一頁</button>
+								<% } %>
+								<% if (pageIndex < pageIndexArray[pageNumber - 1]) { %>
+									<button type="button" class="page btn btn-secondary" data-name="whichPage" data-value="<%=whichPage + 1%>">下一頁</button>
+									<button type="button" class="page btn btn-secondary" data-name="whichPage" data-value="<%=pageNumber%>">至最後一頁</button>
+								<% } else { %>
+									<button type="button" class="page btn btn-secondary disabled" data-name="whichPage" data-value="<%=whichPage + 1%>">下一頁</button>
+									<button type="button" class="page btn btn-secondary disabled" data-name="whichPage" data-value="<%=pageNumber%>">至最後一頁</button>
+								<% } %>
+							<% } %>
+		
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-sm-4">
+							<% if (pageNumber > 1) { %>
+							<select size="1" name="whichPage" class="form-control" id="exampleFormControlSelect1">
+								<% for (int i = 1; i <= pageNumber; i++) { %>
+									<option value="<%=i%>">跳至第<%=i%>頁
+								<% } %>
+							</select> 
+						</div>
+						
+						<div class="col-sm-1">
+							<input type="submit" value="確定" class="btn btn-primary">
+							
+							<% } %>
+						</div>
+						
+					</div>
+				</FORM>
+				<form id="form2" method="post" action="<%=request.getRequestURI()%>">
+					<input id="input2" type="hidden" name="" value="">
+				</form>
+				<script src="<%=request.getContextPath()%>/bootstrap/jquery-3.3.1.slim.min.js"></script>
+				<script>
+					$('.page').click(function(e) {
+					$('#input2').attr('name', $(this).attr('data-name'));
+					$('#input2').val($(this).attr('data-value'));
+					$('#form2').submit();
+				});
+				$('.disabled').unbind();
+				</script>	

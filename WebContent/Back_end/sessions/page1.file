@@ -1,0 +1,61 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%  int rowsPerPage = 6;  //每頁的筆數    
+    int rowNumber=0;      //總筆數
+    int pageNumber=0;     //總頁數      
+    int whichPage=1;      //第幾頁
+    int pageIndexArray[]=null;
+    int pageIndex=0; 
+%>
+
+<%  
+    rowNumber=list.size();
+    if (rowNumber%rowsPerPage !=0)
+         pageNumber=rowNumber/rowsPerPage + 1;
+    else pageNumber=rowNumber/rowsPerPage;    
+
+    pageIndexArray=new int[pageNumber]; 
+    for (int i=1 ; i<=pageIndexArray.length ; i++)
+         pageIndexArray[i-1]=i*rowsPerPage-rowsPerPage;
+%>
+
+<%  try {
+       whichPage = Integer.parseInt(request.getParameter("whichPage"));
+       pageIndex=pageIndexArray[whichPage-1];
+    } catch (NumberFormatException e) { //第一次執行的時候
+       whichPage=1;
+       pageIndex=0;
+    } catch (ArrayIndexOutOfBoundsException e) { //總頁數之外的錯誤頁數
+         if (pageNumber>0){
+              whichPage=pageNumber;
+              pageIndex=pageIndexArray[pageNumber-1];
+         }
+    } 
+%>
+
+			<form method="post" action="<%=request.getRequestURI()%>">
+				<table style="margin-bottom:5px"><tr>
+				<th>
+					<%if (pageNumber>0){%>
+					  <b><font color=red>第<%=whichPage%>/<%=pageNumber%>頁</font></b>
+					<%}%>
+					
+					<b>●符 合 查 詢 條 件 如 下 所 示: 共<font color=red><%=rowNumber%></font>筆　　　　　　　　</b>
+				</th>
+				<th>
+					<select name="movie_no" style="overflow:hidden; text-overflow:ellipsis;white-space:nowrap;width:100px;">
+						<option value="">電影名稱</option>
+						<c:forEach var="movieInfoVO" items="${list_movieInfoVO}">
+							<option value="${movieInfoVO.movie_no}">${movieInfoVO.movie_name}</option>
+						</c:forEach>
+					</select>
+					<select name="cinema_no" style="overflow:hidden; text-overflow:ellipsis;white-space:nowrap;width:100px;">
+						<option value="">廳院名稱</option>
+						<c:forEach var="cinemaVO" items="${cinemaSvc.all}">
+							<option value="${cinemaVO.cinema_no}">${cinemaVO.cinema_name}</option>
+						</c:forEach>
+					</select>
+					<input type="hidden" name="action" value="${param.action}">
+					<input type="submit" value="送出查詢" class="btn btn-secondary btn-sm">
+				</th>
+				</tr></table>
+			</form>

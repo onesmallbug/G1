@@ -1,0 +1,53 @@
+package com.cinema.controller; 
+Class = CinemaTool
+@WebServlet(name = "/CinemaTool", loadOnStartup = 1, urlPatterns = "/CinemaTool") 
+[
+getServletContext().setAttribute("statusOfSitList", statusOfSitList);
+public class statusOfSit{
+		private String str;
+		private String coller;
+		private Integer type;
+		
+		private StatusOfSit(String str, String coller, Integer type){
+			this.str = str;
+			this.coller = coller;
+			this.type = type;
+		}
+
+		public String getStr() {
+			return str;
+		}
+
+		public String getColler() {
+			return coller;
+		}
+
+		public Integer getType() {
+			return type;
+		}
+
+
+		
+	}
+]
+
+
+
+package com.movieticke.controller;
+Class = TicketinformationTool
+@WebServlet(name = "/movieticke/MovietickeTool", loadOnStartup = 1, urlPatterns = "/movieticke/MovietickeTool")
+[
+
+		Map<String, TicketType> map = new HashMap<String, TicketType>();
+		map.put( "1", new TicketType("a","#00e") );
+		//一般票
+		map.put("2", new TicketType("b","#66e"));
+		//半票
+		map.put("3", new TicketType("c","#90c"));
+		//軍公教
+		map.put("4", new TicketType("d","#c9e"));
+		//敬老票
+		
+		getServletContext().setAttribute("TicketTypeMap", map);
+
+]
